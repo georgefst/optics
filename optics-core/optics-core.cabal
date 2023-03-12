@@ -77,6 +77,7 @@ library
                , indexed-profunctors    >= 0.1        && <0.2
                , transformers           >= 0.5        && <0.7
                , indexed-traversable    >= 0.1        && <0.2
+               , foldable1-classes-compat
 
   exposed-modules: Optics.Core
 
@@ -97,6 +98,7 @@ library
                    Optics.IxSetter
                    Optics.IxTraversal
                    Optics.Lens
+                   Optics.NeFold
                    Optics.Prism
                    Optics.ReversedLens
                    Optics.ReversedPrism

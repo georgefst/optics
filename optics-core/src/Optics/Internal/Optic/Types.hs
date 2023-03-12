@@ -35,6 +35,8 @@ data A_ReversedPrism :: OpticKind
 data A_Getter :: OpticKind
 -- | Tag for an affine fold.
 data An_AffineFold :: OpticKind
+-- | Tag for a non-empty fold
+data A_NeFold :: OpticKind
 -- | Tag for a fold.
 data A_Fold :: OpticKind
 -- | Tag for a reversed lens.
@@ -58,5 +60,6 @@ type family Constraints (k :: OpticKind) (p :: Type -> Type -> Type -> Type) :: 
   Constraints A_Setter           p = Mapping p
   Constraints A_Getter           p = (Bicontravariant p, Cochoice p, Strong p)
   Constraints An_AffineFold      p = (Bicontravariant p, Cochoice p, Visiting p)
-  Constraints A_Fold             p = (Bicontravariant p, Cochoice p, Traversing p)
+  Constraints A_NeFold           p = Folding1 p
+  Constraints A_Fold             p = Folding p
   Constraints A_Review           p = (Bifunctor p, Choice p, Costrong p)
